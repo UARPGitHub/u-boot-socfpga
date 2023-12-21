@@ -18,7 +18,7 @@
 #include <asm/arch/pinmux.h>
 #include <asm/arch/reset_manager.h>
 #include <asm/arch/reset_manager_arria10.h>
-#include <asm/arch/sdram_arria10.h>
+#include <asm/arch/sdram.h>
 #include <asm/arch/system_manager.h>
 #include <asm/arch/nic301.h>
 #include <asm/io.h>

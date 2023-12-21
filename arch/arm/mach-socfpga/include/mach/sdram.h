@@ -9,6 +9,8 @@
 
 #if defined(CONFIG_TARGET_SOCFPGA_GEN5)
 #include <asm/arch/sdram_gen5.h>
+#elif defined(CONFIG_TARGET_SOCFPGA_UARPIII)
+#include <asm/arch/sdram_uarpiii.h>
 #elif defined(CONFIG_TARGET_SOCFPGA_ARRIA10)
 #include <asm/arch/sdram_arria10.h>
 #endif
