@@ -28,7 +28,7 @@ CONFIG_SYS_SPL_MALLOC_SIZE=0x5000
 # The custom bootloader (run after SPL) will then load our actual program image to the bottom
 # of the RAM (the space used by the SPL freed up by that point).
 CONFIG_TEXT_BASE=0xFFE30000
-CONFIG_SYS_MONITOR_LEN=0x10000
+CONFIG_SYS_MONITOR_LEN=65536
 # Env paramters for SD card for U-Boot proper
 CONFIG_ENV_SIZE=0x2000
 CONFIG_ENV_OFFSET=0x4400
