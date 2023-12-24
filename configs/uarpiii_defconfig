@@ -1,8 +1,8 @@
 
 # Board Type
-CONFIG_DEFAULT_DEVICE_TREE="PCIeUIIIArriaInterface"
-CONFIG_DEFAULT_FDT_FILE="PCIeUIIIArriaInterface.dtb"
-CONFIG_IDENT_STRING="PCIeUIIIArriaInterfaceEPCQ"
+CONFIG_DEFAULT_DEVICE_TREE="uarpiii_recovery"
+CONFIG_DEFAULT_FDT_FILE="uarpiii_recovery.dtb"
+CONFIG_IDENT_STRING="UARPIII Node"
 
 # Hardware Type
 CONFIG_ARM=y
