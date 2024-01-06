@@ -14,22 +14,22 @@ CONFIG_SYS_NS16550_MEM32=y
 CONFIG_DESIGNWARE_APB_TIMER=y
 
 # Sizes
-# SPL is located at the bottom of the on-chip RAM (192kB available to SPL)
+# SPL is located at the bottom of the on-chip RAM (up to 192kB available to SPL, only need 72kB including DTB, allowing a bit extra for growing room)
 CONFIG_SPL_TEXT_BASE=0xFFE00000
-CONFIG_SPL_PAD_TO=0x30000
+CONFIG_SPL_PAD_TO=0x14000
 CONFIG_SPL_STACK=0xffe28000
 CONFIG_HAS_CUSTOM_SYS_INIT_SP_ADDR=y
-CONFIG_CUSTOM_SYS_INIT_SP_ADDR=0xffe2b000
+CONFIG_CUSTOM_SYS_INIT_SP_ADDR=0xffe20000
 CONFIG_HAS_CUSTOM_SPL_MALLOC_START=y
-CONFIG_CUSTOM_SYS_SPL_MALLOC_ADDR=0xffe2b000
+CONFIG_CUSTOM_SYS_SPL_MALLOC_ADDR=0xffe20000
 CONFIG_SYS_SPL_MALLOC=y
-CONFIG_SYS_SPL_MALLOC_SIZE=0x5000
+CONFIG_SYS_SPL_MALLOC_SIZE=0x10000
 # We then load our custom bootloader to start 192kB into the on-chip RAM as we have no DDR.
 # The custom bootloader (run after SPL) will then load our actual program image to the bottom
 # of the RAM (the space used by the SPL freed up by that point).
 CONFIG_TEXT_BASE=0xFFE30000
 CONFIG_SYS_MONITOR_LEN=65536
-# Env paramters for SD card for U-Boot proper
+# Env paramters for SD card for U-Boot proper. This isn't used, but needed to prevent compile issues
 CONFIG_ENV_SIZE=0x2000
 CONFIG_ENV_OFFSET=0x4400
 
@@ -38,11 +38,12 @@ CONFIG_SYS_MMC_MAX_BLK_COUNT=256
 CONFIG_MMC_DW=y
 CONFIG_ENV_IS_IN_MMC=y
 CONFIG_CMD_MMC=y
+CONFIG_SPL_LEGACY_IMAGE_CRC_CHECK=y
 
 # Others
 CONFIG_DM_GPIO=y
 CONFIG_DWAPB_GPIO=y
-CONFIG_OF_SPL_REMOVE_PROPS="interrupts interrupt-parent dmas dma-names clocks"
+CONFIG_OF_SPL_REMOVE_PROPS="interrupts interrupt-parent dmas dma-names clock-names"
 CONFIG_SPL_DM_SEQ_ALIAS=y
 CONFIG_SPL_DRIVERS_MISC=y
 CONFIG_SPL_ENV_SUPPORT=y
