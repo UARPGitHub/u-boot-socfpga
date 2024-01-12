@@ -237,7 +237,9 @@ void spl_board_init(void)
 		writel(FSBL_IMAGE_IS_INVALID, socfpga_get_sysmgr_addr() +
 		       SYSMGR_A10_ROMCODE_INITSWSTATE);
 
+#if CONFIG_IS_ENABLED(ALTERA_SDRAM)
 		ddr_calibration_sequence();
+#endif
 	}
 
 	if (!is_fpgamgr_user_mode())

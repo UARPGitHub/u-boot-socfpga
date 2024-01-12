@@ -50,9 +50,10 @@ struct bsel bsel_str[] = {
 
 int dram_init(void)
 {
+#if CONFIG_IS_ENABLED(ALTERA_SDRAM)
 	if (fdtdec_setup_mem_size_base() != 0)
 		return -EINVAL;
-
+#endif
 	return 0;
 }
 
