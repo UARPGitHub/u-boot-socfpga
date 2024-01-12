@@ -2,6 +2,7 @@
 CONFIG_DEFAULT_DEVICE_TREE="uarpiii_recovery"
 CONFIG_DEFAULT_FDT_FILE="uarpiii_recovery.dtb"
 CONFIG_IDENT_STRING="UARPIII Node"
+CONFIG_SPL_DISPLAY_PRINT=y
 
 # Hardware Type
 CONFIG_ARM=y

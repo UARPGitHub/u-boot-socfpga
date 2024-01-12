@@ -48,6 +48,13 @@ struct bsel bsel_str[] = {
 	{ "qspi", "QSPI Flash (3.0V)", },
 };
 
+#ifdef CONFIG_SPL_DISPLAY_PRINT
+void spl_display_print(void)
+{
+	puts("Build for " CONFIG_IDENT_STRING " (Board: " CONFIG_SYS_BOARD ", Vendor: " CONFIG_SYS_VENDOR ")\n");
+}
+#endif
+
 int dram_init(void)
 {
 #if CONFIG_IS_ENABLED(ALTERA_SDRAM)
