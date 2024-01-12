@@ -115,6 +115,7 @@ static const struct timer_ops dw_apb_timer_ops = {
 
 static const struct udevice_id dw_apb_timer_ids[] = {
 	{ .compatible = "snps,dw-apb-timer" },
+	{ .compatible = "snps,dw-apb-timer-osc" },
 	{}
 };
 
