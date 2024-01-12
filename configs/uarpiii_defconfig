@@ -14,9 +14,10 @@ CONFIG_SYS_NS16550_MEM32=y
 CONFIG_DESIGNWARE_APB_TIMER=y
 
 # Sizes
-# SPL is located at the bottom of the on-chip RAM (up to 192kB available to SPL, only need 72kB including DTB, allowing a bit extra for growing room)
+# SPL is located at the bottom of the on-chip RAM (up to 192kB available to SPL)
+# We pad to 256kB as required by Arria 10 Boot ROM.
 CONFIG_SPL_TEXT_BASE=0xFFE00000
-CONFIG_SPL_PAD_TO=0x14000
+CONFIG_SPL_PAD_TO=0x40000
 CONFIG_SPL_STACK=0xffe28000
 CONFIG_HAS_CUSTOM_SYS_INIT_SP_ADDR=y
 CONFIG_CUSTOM_SYS_INIT_SP_ADDR=0xffe20000
