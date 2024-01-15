@@ -139,6 +139,7 @@ config SPL_RESET_SOCFPGA_KEEP_ENABLED
 	bool "Force de-assertion of Peripheral Resets when leaving SPL"
 	depends on RESET_SOCFPGA
 	default n
+	imply SPL_DM_DEVICE_REMOVE
 	help
 	  If this is enabled, the reset manager will de-assert the reset
 	  signals for all peripherals. This is useful for bare-metal boots

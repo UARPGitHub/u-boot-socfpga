@@ -24,6 +24,9 @@
 #include <asm/arch/misc.h>
 #include <asm/arch/nic301.h>
 #include <asm/sections.h>
+#include <dm/uclass.h>
+#include <dm/device.h>
+#include <dm/device-internal.h>
 #include <fdtdec.h>
 #include <watchdog.h>
 #include <asm/arch/pinmux.h>
@@ -288,6 +291,17 @@ void spl_board_prepare_for_boot(void)
 	// Deassert bridge resets
 	do_bridge_reset(true, ~0);
 #endif
+
+#if defined(CONFIG_SPL_RESET_SOCFPGA_KEEP_ENABLED)
+	// Destroy the reset manager device so that it will enable peripherals
+	struct udevice *dev;
+	int ret = uclass_get_device(UCLASS_RESET, 0, &dev);
+	if (ret)
+		debug("Reset init failed: %d\n", ret);
+	else
+		device_remove(dev, DM_REMOVE_NORMAL);
+#endif
+
 }
 
 #if defined(CONFIG_SPL_LOAD_FIT) && (defined(CONFIG_SPL_SPI_LOAD) || \
