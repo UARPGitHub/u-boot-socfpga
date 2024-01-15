@@ -121,6 +121,29 @@ config RESET_SOCFPGA
 	help
 	  Support for reset controller on SoCFPGA platform.
 
+config RESET_SOCFPGA_KEEP_ENABLED
+	bool "Force de-assertion of Peripheral Resets when booting OS"
+	depends on RESET_SOCFPGA
+	default n
+	help
+	  By default all the peripherals are returned to reset (unless
+	  legacy OS disables this through the environment settings) and
+	  it is up to the OS to deassert the resets for peripherals it
+	  uses.
+	  If this is enabled, the reset manager will de-assert the reset
+	  signals for all peripherals regardless of OS and Environment
+	  settings. This is useful for bare-metal boots which cannot
+	  use the environment to request this legacy behavior.
+
+config SPL_RESET_SOCFPGA_KEEP_ENABLED
+	bool "Force de-assertion of Peripheral Resets when leaving SPL"
+	depends on RESET_SOCFPGA
+	default n
+	help
+	  If this is enabled, the reset manager will de-assert the reset
+	  signals for all peripherals. This is useful for bare-metal boots
+	  which cannot use the environment to request this legacy behavior.
+
 config RESET_MEDIATEK
 	bool "Reset controller driver for MediaTek SoCs"
 	depends on DM_RESET && ARCH_MEDIATEK && CLK
