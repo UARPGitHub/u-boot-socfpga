@@ -16,6 +16,9 @@ CONFIG_DESIGNWARE_APB_TIMER=y
 # No RAM
 CONFIG_SPL_ALTERA_SDRAM=n
 
+# Enable HPS bridge before loading image
+CONFIG_SPL_SOCFPGA_ENABLE_BRIDGE=y
+
 # Sizes
 # SPL is located at the bottom of the on-chip RAM (up to 192kB available to SPL)
 # We pad to 256kB as required by Arria 10 Boot ROM. Max boot memory length is 64kB
@@ -73,3 +76,4 @@ CONFIG_SPL_RAW_IMAGE_SUPPORT=y
 CONFIG_TIMER=y
 CONFIG_SPL_TIMER=y
 CONFIG_ETH_DESIGNWARE=y
+CONFIG_SPL_RESET_SOCFPGA_KEEP_ENABLED=y
