@@ -284,6 +284,10 @@ void spl_board_prepare_for_boot(void)
 {
 	writel(FSBL_IMAGE_IS_VALID, socfpga_get_sysmgr_addr() +
 	       SYSMGR_A10_ROMCODE_INITSWSTATE);
+#if defined(SPL_SOCFPGA_ENABLE_BRIDGE)
+	// Deassert bridge resets
+	do_bridge_reset(true, ~0);
+#endif
 }
 
 #if defined(CONFIG_SPL_LOAD_FIT) && (defined(CONFIG_SPL_SPI_LOAD) || \

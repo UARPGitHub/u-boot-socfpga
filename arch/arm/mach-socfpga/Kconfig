@@ -30,6 +30,11 @@ config SOCFPGA_SECURE_VAB_AUTH_ALLOW_NON_FIT_IMAGE
 	bool "Allow non-FIT VAB signed images"
 	depends on SOCFPGA_SECURE_VAB_AUTH
 
+config SPL_SOCFPGA_ENABLE_BRIDGE
+	bool "Enable HPS bridges in spl_board_prepare_for_boot."
+	default "n"
+	depends on TARGET_SOCFPGA_ARRIA10
+
 config SPL_SIZE_LIMIT
 	default 0x10000 if TARGET_SOCFPGA_GEN5
 
