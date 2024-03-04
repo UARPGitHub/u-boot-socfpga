@@ -33,6 +33,8 @@ CONFIG_CUSTOM_SYS_SPL_MALLOC_ADDR=0xffe20000
 CONFIG_SYS_SPL_MALLOC=y
 CONFIG_SYS_SPL_MALLOC_SIZE=0x10000
 CONFIG_SYS_BOOTM_LEN=0x10000
+CONFIG_SYS_ICACHE_OFF=y
+CONFIG_SYS_DCACHE_OFF=y
 
 # We then load our custom bootloader to start 192kB into the on-chip RAM as we have no DDR.
 # The custom bootloader (run after SPL) will then load our actual program image to the bottom
