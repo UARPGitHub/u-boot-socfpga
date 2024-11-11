@@ -1,0 +1,6 @@
+Leeds SoC Computer on DE1-SoC BOARD
+M:	Thomas Carpenter <t.carpenter@leeds.ac.uk>
+S:	Maintained
+F:	board/unileeds/de1-soc-lsc/
+F:	include/configs/socfpga_de1_soc.h
+F:	configs/unileeds_lsc_defconfig
