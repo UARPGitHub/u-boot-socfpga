@@ -1,2 +1,0 @@
-# Ignore UARPIII Files. These are stored in seperate repo then copied in during build of preloader.
-uarpiii*
