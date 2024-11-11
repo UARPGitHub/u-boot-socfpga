@@ -4,4 +4,4 @@ M:	Thomas Carpenter <t.carpenter@leeds.ac.uk>
 S:	Maintained
 F:	board/unileeds/uarpiii/
 F:	include/configs/socfpga_uarpiii.h
-F:	configs/uarpiii_defconfig
+F:	configs/unileeds_uarpiii_defconfig
