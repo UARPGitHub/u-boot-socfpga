@@ -21,6 +21,9 @@
 #include <asm/arch/scan_manager.h>
 #include <asm/arch/sdram.h>
 #include <asm/sections.h>
+#include <dm/uclass.h>
+#include <dm/device.h>
+#include <dm/device-internal.h>
 #include <debug_uart.h>
 #include <fdtdec.h>
 #include <watchdog.h>
@@ -157,4 +160,18 @@ void board_init_f(ulong dummy)
 		debug("DRAM init failed: %d\n", ret);
 		hang();
 	}
+}
+
+/* board specific function prior loading SSBL / U-Boot proper */
+void spl_board_prepare_for_boot(void)
+{
+#if defined(CONFIG_SPL_RESET_SOCFPGA_KEEP_ENABLED)
+	// Destroy the reset manager device so that it will enable peripherals
+	struct udevice *dev;
+	int ret = uclass_get_device(UCLASS_RESET, 0, &dev);
+	if (ret)
+		debug("Reset init failed: %d\n", ret);
+	else
+		device_remove(dev, DM_REMOVE_NORMAL);
+#endif
 }
