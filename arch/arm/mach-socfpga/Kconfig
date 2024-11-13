@@ -114,7 +114,7 @@ config TARGET_SOCFPGA_ARRIA5
 config TARGET_SOCFPGA_ARRIA10
 	bool
 	select GICV2
-	select SPL_ALTERA_SDRAM if !TARGET_SOCFPGA_UARPIII
+	select SPL_ALTERA_SDRAM if !TARGET_SOCFPGA_UNILEEDS_UARPIII
 	select SPL_BOARD_INIT if SPL
 	select SPL_CACHE if SPL
 	select SPL_WDT if SPL
@@ -229,7 +229,7 @@ config TARGET_SOCFPGA_ARRIA10_SOCDK
 	bool "Altera SOCFPGA SoCDK (Arria 10)"
 	select TARGET_SOCFPGA_ARRIA10
 
-config TARGET_SOCFPGA_UARPIII
+config TARGET_SOCFPGA_UNILEEDS_UARPIII
 	bool "University of Leeds UARPIII (Arria 10)"
 	select TARGET_SOCFPGA_ARRIA10
 
@@ -291,6 +291,10 @@ config TARGET_SOCFPGA_TERASIC_DE1_SOC
 	bool "Terasic DE1-SoC (Cyclone V)"
 	select TARGET_SOCFPGA_CYCLONE5
 
+config TARGET_SOCFPGA_UNILEEDS_LSC
+	bool "University of Leeds SoC Computer (Cyclone V)"
+	select TARGET_SOCFPGA_CYCLONE5
+
 config TARGET_SOCFPGA_TERASIC_SOCKIT
 	bool "Terasic SoCkit (Cyclone V)"
 	select TARGET_SOCFPGA_CYCLONE5
@@ -321,7 +325,8 @@ config SYS_BOARD
 	default "sr1500" if TARGET_SOCFPGA_SR1500
 	default "stratix10-socdk" if TARGET_SOCFPGA_STRATIX10_SOCDK
 	default "vining_fpga" if TARGET_SOCFPGA_SOFTING_VINING_FPGA
-	default "uarpiii-node" if TARGET_SOCFPGA_UARPIII
+	default "uarpiii-node" if TARGET_SOCFPGA_UNILEEDS_UARPIII
+	default "de1-soc" if TARGET_SOCFPGA_UNILEEDS_LSC
 
 config SYS_VENDOR
 	default "intel" if TARGET_SOCFPGA_AGILEX7_SOCDK
@@ -344,7 +349,8 @@ config SYS_VENDOR
 	default "terasic" if TARGET_SOCFPGA_TERASIC_DE10_NANO
 	default "terasic" if TARGET_SOCFPGA_TERASIC_DE10_STANDARD
 	default "terasic" if TARGET_SOCFPGA_TERASIC_SOCKIT
-	default "unileeds" if TARGET_SOCFPGA_UARPIII
+	default "unileeds" if TARGET_SOCFPGA_UNILEEDS_LSC
+	default "unileeds" if TARGET_SOCFPGA_UNILEEDS_UARPIII
 
 config SYS_SOC
 	default "socfpga"
@@ -357,7 +363,6 @@ config SYS_CONFIG_NAME
 	default "socfpga_arria5_secu1" if TARGET_SOCFPGA_ARRIA5_SECU1
 	default "socfpga_arria5_socdk" if TARGET_SOCFPGA_ARRIA5_SOCDK
 	default "socfpga_arria10_socdk" if TARGET_SOCFPGA_ARRIA10_SOCDK
-	default "socfpga_uarpiii" if TARGET_SOCFPGA_UARPIII
 	default "socfpga_chameleonv3" if TARGET_SOCFPGA_CHAMELEONV3
 	default "socfpga_cyclone5_socdk" if TARGET_SOCFPGA_CYCLONE5_SOCDK
 	default "socfpga_dbm_soc1" if TARGET_SOCFPGA_DEVBOARDS_DBM_SOC1
@@ -374,5 +379,7 @@ config SYS_CONFIG_NAME
 	default "socfpga_sr1500" if TARGET_SOCFPGA_SR1500
 	default "socfpga_stratix10_socdk" if TARGET_SOCFPGA_STRATIX10_SOCDK
 	default "socfpga_vining_fpga" if TARGET_SOCFPGA_SOFTING_VINING_FPGA
+	default "socfpga_uarpiii" if TARGET_SOCFPGA_UNILEEDS_UARPIII
+	default "socfpga_lsc" if TARGET_SOCFPGA_UNILEEDS_LSC
 
 endif
