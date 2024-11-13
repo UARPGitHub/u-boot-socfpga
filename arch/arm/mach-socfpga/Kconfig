@@ -380,6 +380,6 @@ config SYS_CONFIG_NAME
 	default "socfpga_stratix10_socdk" if TARGET_SOCFPGA_STRATIX10_SOCDK
 	default "socfpga_vining_fpga" if TARGET_SOCFPGA_SOFTING_VINING_FPGA
 	default "socfpga_uarpiii" if TARGET_SOCFPGA_UNILEEDS_UARPIII
-	default "socfpga_lsc" if TARGET_SOCFPGA_UNILEEDS_LSC
+	default "socfpga_unileeds_lsc" if TARGET_SOCFPGA_UNILEEDS_LSC
 
 endif
