@@ -326,7 +326,7 @@ config SYS_BOARD
 	default "stratix10-socdk" if TARGET_SOCFPGA_STRATIX10_SOCDK
 	default "vining_fpga" if TARGET_SOCFPGA_SOFTING_VINING_FPGA
 	default "uarpiii-node" if TARGET_SOCFPGA_UNILEEDS_UARPIII
-	default "de1-soc" if TARGET_SOCFPGA_UNILEEDS_LSC
+	default "de1-soc-lsc" if TARGET_SOCFPGA_UNILEEDS_LSC
 
 config SYS_VENDOR
 	default "intel" if TARGET_SOCFPGA_AGILEX7_SOCDK
