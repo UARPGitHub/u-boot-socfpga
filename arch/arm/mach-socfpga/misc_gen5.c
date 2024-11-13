@@ -213,7 +213,7 @@ int arch_early_init_r(void)
 	return 0;
 }
 
-#ifndef CONFIG_SPL_BUILD
+#if !defined(CONFIG_SPL_BUILD) || defined(CONFIG_SPL_SOCFPGA_ENABLE_BRIDGE)
 static struct socfpga_sdr_ctrl *sdr_ctrl =
 	(struct socfpga_sdr_ctrl *)SDR_CTRLGRP_ADDRESS;
 

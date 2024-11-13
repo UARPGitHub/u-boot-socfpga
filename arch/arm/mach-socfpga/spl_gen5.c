@@ -165,6 +165,10 @@ void board_init_f(ulong dummy)
 /* board specific function prior loading SSBL / U-Boot proper */
 void spl_board_prepare_for_boot(void)
 {
+#if defined(CONFIG_SPL_SOCFPGA_ENABLE_BRIDGE)
+	// Deassert bridge resets
+	do_bridge_reset(true, ~0);
+#endif
 #if defined(CONFIG_SPL_RESET_SOCFPGA_KEEP_ENABLED)
 	// Destroy the reset manager device so that it will enable peripherals
 	struct udevice *dev;
