@@ -1,6 +1,6 @@
 # Board Type
-CONFIG_DEFAULT_DEVICE_TREE="socfpga_cyclone5_de1_soc"
-CONFIG_DEFAULT_FDT_FILE="socfpga_cyclone5_de1_soc.dtb"
+CONFIG_DEFAULT_DEVICE_TREE="unileeds_lsc"
+CONFIG_DEFAULT_FDT_FILE="unileeds_lsc.dtb"
 CONFIG_IDENT_STRING="Leeds SoC Computer"
 
 # Hardware Type
@@ -32,7 +32,9 @@ CONFIG_SPL_FS_LOAD_PAYLOAD_NAME="bootloader-mkpimage.bin"
 # Others
 CONFIG_DM_GPIO=y
 CONFIG_DM_RESET=y
+CONFIG_OF_SPL_REMOVE_PROPS="interrupts interrupt-parent dmas dma-names clock-names"
 CONFIG_FIT=y
+CONFIG_SPL_FIT=y
 CONFIG_TIMESTAMP=y
 CONFIG_DISTRO_DEFAULTS=y
 # CONFIG_USE_BOOTCOMMAND is not set
@@ -76,8 +78,10 @@ CONFIG_MII=y
 CONFIG_SPI=y
 CONFIG_USB=y
 CONFIG_USB_DWC2=y
+# CONFIG_EFI_LOADER is not set
+
+# Peripherals
+CONFIG_SYS_TIMER_COUNTS_DOWN=y
 CONFIG_SPL_WDT=y
 CONFIG_WDT=y
-CONFIG_SYS_TIMER_COUNTS_DOWN=y
-# CONFIG_EFI_LOADER is not set
 CONFIG_SPL_RESET_SOCFPGA_KEEP_ENABLED=y
